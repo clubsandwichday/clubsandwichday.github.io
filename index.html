@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is today World Club Sandwich Day?</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111111;
+        --text: #f5f5f5;
+        --accent: #34c759;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      main {
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.1;
+      }
+
+      .answer {
+        margin: 20px 0 12px;
+        font-size: clamp(4rem, 12vw, 8rem);
+        line-height: 1;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .detail {
+        margin: 0;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Is today World Club Sandwich Day?</h1>
+      <p class="answer">YES</p>
+      <p class="detail" id="detail"></p>
+    </main>
+
+    <script>
+      const today = new Date();
+      const formattedDate = new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }).format(today);
+
+      document.getElementById(
+        "detail",
+      ).textContent = `Today ${formattedDate} is the World Club Sandwich Day`;
+    </script>
+  </body>
+</html>
