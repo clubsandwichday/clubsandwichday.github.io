@@ -10,6 +10,7 @@
         --bg: #111111;
         --text: #f5f5f5;
         --accent: #34c759;
+        --no: #ff453a;
       }
 
       * {
@@ -55,21 +56,27 @@
   <body>
     <main>
       <h1>Is today World Club Sandwich Day?</h1>
-      <p class="answer">YES</p>
+      <p class="answer" id="answer">YES</p>
       <p class="detail" id="detail"></p>
     </main>
 
     <script>
       const today = new Date();
+      const day = today.getDay();
+      const isClubSandwichDay = day >= 1 && day <= 4;
       const formattedDate = new Intl.DateTimeFormat("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
       }).format(today);
+      const answer = document.getElementById("answer");
+
+      answer.textContent = isClubSandwichDay ? "YES" : "NO";
+      answer.style.color = isClubSandwichDay ? "var(--accent)" : "var(--no)";
 
       document.getElementById(
         "detail",
-      ).textContent = `Today ${formattedDate} is the World Club Sandwich Day`;
+      ).textContent = `Today ${formattedDate} ${isClubSandwichDay ? "is" : "is not"} the World Club Sandwich Day`;
     </script>
   </body>
 </html>
